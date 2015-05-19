@@ -1,0 +1,12 @@
+- clean: ['~']
+
+- link:
+    ~/.gitconfig: gitconfig
+    ~/.gitignore_global: gitignore_global
+    ~/.bashrc: bashrc
+    ~/.bash_prompt: bash_prompt 
+    ~/.aliases: aliases
+    ~/.exports: exports
+
+- shell:
+  - git update-submodules # after linking ~/.gitconfig
