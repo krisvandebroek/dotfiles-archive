@@ -11,6 +11,7 @@ alias dev="cd ~/Documents/Development"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias g="git"
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
