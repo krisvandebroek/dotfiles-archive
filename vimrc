@@ -86,4 +86,6 @@ set splitright
 
 " toggle relative numbering
 nnoremap <C-n> :set rnu!<CR>
+" Set F5 as shortcut to togge Gundo
+nnoremap <F5> :GundoToggle<CR>
 

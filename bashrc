@@ -6,7 +6,8 @@ for file in ~/.{path,bash_prompt,exports,aliases,functions,extra,git-completion}
 done;
 unset file;
 
-# export LSCOLORS=Exfxcxdxbxegedabagacad
+# Allow local customizations
+[ -r ~/.bashrc_local ] && source ~/.bashrc_local;
 
 # Append to the Bash history file, rather than overwriting it
 shopt -s histappend;
