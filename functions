@@ -17,3 +17,8 @@ function fs() {
 	fi;
 }
 
+# Find text in recursively in files starting from the current directory
+function grep-text() {
+	grep -r "$1" .;
+}
+

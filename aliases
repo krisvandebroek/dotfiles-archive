@@ -7,11 +7,7 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias dev="cd ~/Documents/Development"
-alias dl="cd ~/Downloads"
-alias dt="cd ~/Desktop"
 alias g="git"
-alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias pg="ping google.be"
 
 # Detect which `ls` flavor is in use
