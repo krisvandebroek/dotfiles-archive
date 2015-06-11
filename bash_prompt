@@ -37,14 +37,21 @@ prompt_git() {
 				s+='?';
 			fi;
 
-			# Check for unpushed commits.
-			if $(git cherry -v &> /dev/null) && [ -n "$(git cherry -v)" ]; then
-				s+='U';
-			fi;
-
 			# Check for stashed files.
 			if $(git rev-parse --verify refs/stash &>/dev/null); then
 				s+='$';
+			fi;
+
+			# Check for unpushed branch. 
+			# (git branch -lvv lists all local branches including there remote tracking branches.
+			# The asterisk marks the currently active branch.)
+			if [ ! -n "$(git branch -lvv | grep -i '^\*.* \[origin/')" ]; then
+				s+='Ub';
+			fi;
+
+			# Check for unpushed commits.
+			if $(git cherry -v &> /dev/null) && [ -n "$(git cherry -v)" ]; then
+				s+='Uc';
 			fi;
 
 		fi;
