@@ -38,7 +38,7 @@ prompt_git() {
 			fi;
 
 			# Check for unpushed commits.
-			if [ -n "$(git cherry -v)" ]; then
+			if $(git cherry -v &> /dev/null) && [ -n "$(git cherry -v)" ]; then
 				s+='U';
 			fi;
 
