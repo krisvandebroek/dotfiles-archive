@@ -37,6 +37,11 @@ prompt_git() {
 				s+='?';
 			fi;
 
+			# Check for unpushed commits.
+			if [ -n "$(git cherry -v)" ]; then
+				s+='U';
+			fi;
+
 			# Check for stashed files.
 			if $(git rev-parse --verify refs/stash &>/dev/null); then
 				s+='$';
