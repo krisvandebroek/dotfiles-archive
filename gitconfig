@@ -15,6 +15,11 @@
 
 	dc = diff --cached
 
+	fp = !"git fetch --prune; git pull" 
+
+	subdirs-fetch = !"find . -type d -d 1 -exec sh -c '(cd {} && pwd && git fetch --prune)' ';' | less"
+	subdirs-branches = !"find . -type d -d 1 -exec sh -c '(cd {} && pwd && git branch -r)' ';' | less"
+
 
 # Allow local customizations in the .gitconfig_local file
 [include]
