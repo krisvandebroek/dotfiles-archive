@@ -19,6 +19,14 @@ function fs() {
 
 # Find text in recursively in files starting from the current directory
 function grep-text() {
-	grep -r "$1" .;
+	grep -n -I -r "$1" .;
 }
 
+function mvn-version-bump() {
+	if [ -z "$1" ]; then
+		echo "Usage: mvn-version-bump <new-version-number>";
+		echo "Example: mvn-version-bump 1.0.0-SNAPSHOT";
+	else 
+		mvn -U --batch-mode release:update-versions -DdevelopmentVersion=$1;
+	fi
+}
