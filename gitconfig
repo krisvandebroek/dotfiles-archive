@@ -1,5 +1,6 @@
 [core]
 	excludesfile = ~/.gitignore_global
+	editor = vim
 
 [alias]
 	update-submodules = submodule update --init --recursive
@@ -17,8 +18,16 @@
 
 	fp = !"git fetch --prune; git pull" 
 
-	subdirs-fetch = !"find . -type d -d 1 -exec sh -c '(cd {} && pwd && git fetch --prune)' ';' | less"
-	subdirs-branches = !"find . -type d -d 1 -exec sh -c '(cd {} && pwd && git branch -r)' ';' | less"
+
+	# Do a git fetch, pruning obsolete remote branches, on all subdirectories
+	subdirs-fetch = !"find . -type d -d 1 -exec sh -c '(cd {} && pwd && git fetch --prune)' ';'"
+	# List the remote branches for all subdirectories
+	subdirs-branches = !"find . -type d -d 1 -exec sh -c '(cd {} && pwd && git branch -r)' ';'"
+	# Checkout feature branch which starts with given argument (eg. `git checkf ISACONB-666`)
+	checkf = "!f() { git for-each-ref */*/feature/$1* */*/*/feature/$1* --format='%(refname:short)' --count=1 | sed 's/origin\\///' | xargs git checkout; }; f"
+	# Remove all local branches which are already merged to develop (no impact on remote existence of branch) (eg. `git cleanf`)
+	cleanf = "!f() { git branch --merged develop | grep '^  feature' | xargs git branch -d; }; f"
+
 
 
 # Allow local customizations in the .gitconfig_local file
