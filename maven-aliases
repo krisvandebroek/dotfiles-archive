@@ -1,0 +1,27 @@
+# Maven commands
+alias mci="mvnrun clean install $@"
+alias mcisk="mvnrun clean install -Dmaven.test.skip=true $@"
+alias mpro="mvnrun help:all-profiles $@"
+alias mpax="mvnrun clean install pax:provision $@"
+alias mver="mvnrun clean install verify -P e2e-tests-local $@"
+alias mdep="mvnrun dependency:tree $@"
+alias mpom="mvnrun help:effective-pom $@"
+
+mvnrun() {
+	echo mvn $@
+	eval mvn $@
+	echo mvn $@
+}
+
+function mvn-help() {
+	echo "Maven Custom Aliases Usage"
+	echo
+	echo "  mci    = mvn clean install \$@"
+	echo "  mcisk  = mvn clean install -Dmaven.test.skip=true \$@"
+	echo "  mpro   = mvn help:all-profiles \$@"
+	echo "  mpax   = mvn clean install pax:provision \$@"
+	echo "  mver   = mvn clean install verify -P e2e-tests-local \$@"
+	echo "  mdep   = mvn dependency:tree \$@"
+	echo "  mpom   = mvn help:effective-pom \$@"
+}
+

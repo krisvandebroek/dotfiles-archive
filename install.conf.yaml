@@ -7,11 +7,13 @@
     ~/.inputrc: inputrc
     ~/.bash_prompt: bash_prompt 
     ~/.aliases: aliases
+    ~/.maven-aliases: maven-aliases
     ~/.exports: exports
     ~/.functions: functions
     ~/.vimrc: vimrc
     ~/.vim: vim/
     ~/.git-completion: git-completion
+    ~/.mvn-completion: maven-bash-completion/bash_completion.bash
 
 - shell:
   - git update-submodules # after linking ~/.gitconfig

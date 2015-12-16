@@ -27,3 +27,7 @@
 [submodule "vim/bundle/vim-neatstatus"]
 	path = vim/bundle/vim-neatstatus
 	url = https://github.com/maciakl/vim-neatstatus.git
+[submodule "maven-bash-completion"]
+	path = maven-bash-completion
+	url = https://github.com/juven/maven-bash-completion.git
+
