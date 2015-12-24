@@ -1,3 +1,10 @@
+# This file is based on the .dotfiles repository from Mathias Bynens.
+# I tweaked it a bit to fit my needs.
+# Changes: 
+#   - I added an indicator for unpushed git branches
+#   - I added an indicator for unpushed commits
+#   - I added the current time to the prompt
+
 # Shell prompt based on the Solarized Dark theme.
 # Screenshot: http://i.imgur.com/EkEtphC.png
 # Heavily inspired by @necolas’s prompt: https://github.com/necolas/dotfiles

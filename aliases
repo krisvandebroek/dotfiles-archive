@@ -1,5 +1,5 @@
 # Easier navigation: .., ..., ...., ....., ~ and -
-alias cd..="cd .."
+alias cd..="cd .." # Typical typo
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -11,11 +11,11 @@ alias -- -="cd -"
 
 # Shortcuts
 alias g="git"
-alias pg="ping google.be"
+alias pg="ping google.be" # Am I still online? ;)
 alias path='echo -e ${PATH//:/\\n}'
-alias df='df -H'
-alias du='du -ch'
-alias du1='du -chd 1'
+alias df='df -H' # Disk free, human readible by default
+alias du='du -ch' # Disk usage, human readible and with total by default
+alias du1='du -chd 1' # Disk usage, only 1 level deep
 
 # Size of the current directory
 alias usage='du -ch 2> /dev/null | tail -1'

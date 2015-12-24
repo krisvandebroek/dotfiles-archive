@@ -17,11 +17,25 @@ function fs() {
 	fi;
 }
 
-# Find text in recursively in files starting from the current directory
-function grep-text() {
-	grep -n -I -r "$1" .;
+# Find text recursively in files, optionally with inclusion pattern for quicker searches
+# -i : ignore-case
+# -I : ignore binary files
+# -r : recursive
+# --include : only search in files matching this pattern
+function gr() {
+	if [ -z "$1" ]; then
+		echo "Usage: gr [fileIncludePattern] searchPattern";
+		echo "Example: gr *.java //TODO";
+	else
+		if [ -n "$2" ]; then
+			grep -i -I -r --include="$1" "$2" .;
+		else
+			grep -i -I -r "$1" .;
+		fi
+	fi
 }
 
+# Update the version of all modules in a maven multi-module project to a given version
 function mvn-version-bump() {
 	if [ -z "$1" ]; then
 		echo "Usage: mvn-version-bump <new-version-number>";
