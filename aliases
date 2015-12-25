@@ -11,6 +11,7 @@ alias -- -="cd -"
 
 # Shortcuts
 alias g="git"
+alias gp="git pull"
 alias pg="ping google.be" # Am I still online? ;)
 alias path='echo -e ${PATH//:/\\n}'
 alias df='df -H' # Disk free, human readible by default
