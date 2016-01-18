@@ -17,6 +17,7 @@ alias path='echo -e ${PATH//:/\\n}'
 alias df='df -H' # Disk free, human readible by default
 alias du='du -ch' # Disk usage, human readible and with total by default
 alias du1='du -chd 1' # Disk usage, only 1 level deep
+alias dotfiles='cd ~/.dotfiles'
 
 # Size of the current directory
 alias usage='du -ch 2> /dev/null | tail -1'

@@ -50,6 +50,7 @@ set autoindent
 "---------------------
 " Basic editing config
 "---------------------
+:set showcmd " Show commands while you are typing them
 set nu " number lines
 set rnu " relative line numbering
 set incsearch " incremental search (as string is being typed)
@@ -89,3 +90,9 @@ nnoremap <C-n> :set rnu!<CR>
 " Set F5 as shortcut to togge Gundo
 nnoremap <F5> :GundoToggle<CR>
 
+" Disable arrow keys. Learn hjkl!
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+inoremap jj <ESC>
