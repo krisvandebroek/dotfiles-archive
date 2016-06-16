@@ -17,18 +17,18 @@ function fs() {
 	fi;
 }
 
-# Find text recursively in files, optionally with inclusion pattern for quicker searches
+# Find text recursively in files, optionally with inclusion pattern (extension) for quicker searches
 # -i : ignore-case
 # -I : ignore binary files
 # -r : recursive
-# --include : only search in files matching this pattern
+# --include : only search in files with the given extension
 function gr() {
 	if [ -z "$1" ]; then
-		echo "Usage: gr [fileIncludePattern] searchPattern";
-		echo "Example: gr *.java //TODO";
+		echo "Usage: gr [fileExtension] searchPattern";
+		echo "Example: gr java //TODO";
 	else
 		if [ -n "$2" ]; then
-			grep -i -I -r --include="$1" "$2" .;
+			grep -i -I -r --include="*.$1" "$2" .;
 		else
 			grep -i -I -r "$1" .;
 		fi
