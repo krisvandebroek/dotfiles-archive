@@ -1,11 +1,15 @@
 # Maven commands
+alias pom="vim pom.xml"
 alias mci="mvnrun clean install $@"
-alias mcisk="mvnrun clean install -Dmaven.test.skip=true $@"
+alias mcisk="mvnrun clean install -DskipTests $@"
 alias mpro="mvnrun help:all-profiles $@"
-alias mpax="mvnrun clean install pax:provision $@"
-alias mver="mvnrun clean install verify -P e2e-tests-local $@"
+alias mpax="mvnrun clean install pax:provision -Pdevtools,radac-stub,eadmin-stub,exchangerate-stub,e2e-tests $@"
+alias mver="mvnrun clean verify -P e2e-tests-local -Duser.timezone=UTC $@"
+alias me2e="mvnrun clean verify -P e2e-tests,with-mail-server -Duser.timezone=UTC $@"
 alias mdep="mvnrun dependency:tree $@"
 alias mpom="mvnrun help:effective-pom $@"
+alias mdist="mvnrun clean install -P distribution,eadmin-stub,radac-stub,openexchangerates $@"
+alias mvtree="mvnrun dependency:tree -Dverbose $@" 
 
 mvnrun() {
 	echo mvn $@
@@ -16,12 +20,16 @@ mvnrun() {
 function mvn-help() {
 	echo "Maven Custom Aliases Usage"
 	echo
+	echo "  pom    = vim pom.xml"
 	echo "  mci    = mvn clean install \$@"
-	echo "  mcisk  = mvn clean install -Dmaven.test.skip=true \$@"
+	echo "  mcisk  = mvn clean install -DskipTests \$@"
 	echo "  mpro   = mvn help:all-profiles \$@"
-	echo "  mpax   = mvn clean install pax:provision \$@"
-	echo "  mver   = mvn clean install verify -P e2e-tests-local \$@"
+	echo "  mpax   = mvn clean install pax:provision -Pdevtools,radac-stub,eadmin-stub,exchangerate-stub,e2e-tests \$@"
+	echo "  mver   = mvn clean verify -P e2e-tests-local -Duser.timezone=UTC \$@"
+	echo "  me2e   = mvn clean verify -P e2e-tests,with-mail-server -Duser.timezone=UTC \$@"
 	echo "  mdep   = mvn dependency:tree \$@"
 	echo "  mpom   = mvn help:effective-pom \$@"
+	echo "  mdist  = mvn clean install -P distribution,eadmin-stub,radac-stub,openexchangerates \$@"
+	echo "  mvtree = mvn dependency:tree -Dverbose \$@"
 }
 
