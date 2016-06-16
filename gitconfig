@@ -13,16 +13,29 @@
 
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
-
 	dc = diff --cached
+	# Show untracked files
+	u = ls-files --others --exclude-standard 
+	# Show stashes
+	st = !"git stash list | grep -v \"No stash found.\""
 
 	fp = !"git fetch --prune; git pull" 
 
+	# Run the script passed as argument $1 in the git folder
+		script ="!f() { echo "$1"; }; f"
 
 	# Do a git fetch, pruning obsolete remote branches, on all subdirectories
 	subdirs-fetch = !"find . -type d -d 1 -exec sh -c '(cd {} && pwd && git fetch --prune)' ';'"
 	# List the remote branches for all subdirectories
 	subdirs-branches = !"find . -type d -d 1 -exec sh -c '(cd {} && pwd && git branch -r)' ';'"
+	# List unpushed branches
+	list-unpushed-branches = "!f() { git branch -lvv | grep -v '\\[origin/';}; f"
+	# Check if there is stashed code
+	check-stash = "!f() { if $(git rev-parse --verify refs/stash &>/dev/null); then echo 'Stashed code present'; fi; }; f"
+	# List branches merged to develop
+		list-merged-branches = !"for branch in `git branch -r --merged develop | grep -v HEAD | grep -v 'origin/develop' | grep -v 'origin/master' | grep -v 'origin/release'`; do echo -e `git show --format='%ci %cr %an' $branch | head -n 1` \\\t$branch; done | sort -r"
+	# List branches not merged to develop
+	list-not-merged-branches = "!f() { for branch in `git branch -r --no-merged develop | grep -v 'HEAD' | grep -v 'origin/develop' | grep -v 'origin/master'`; do echo `git show --format='%ci %cr %an' $branch | head -n 1` \\\t$branch; done | sort -r;}; f"
 	# Checkout feature branch which starts with given argument (eg. `git checkf ISACONB-666`)
 	checkf = "!f() { git for-each-ref */*/feature/$1* */*/*/feature/$1* --format='%(refname:short)' --count=1 | sed 's/origin\\///' | xargs git checkout; }; f"
 	# Remove all local branches which are already merged to develop (no impact on remote existence of branch) (eg. `git cleanf`)
