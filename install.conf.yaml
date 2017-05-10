@@ -4,6 +4,7 @@
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
     ~/.bashrc: bashrc
+    ~/.bash_profile: bash_profile
     ~/.inputrc: inputrc
     ~/.bash_prompt: bash_prompt 
     ~/.aliases: aliases

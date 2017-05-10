@@ -10,6 +10,15 @@ alias mdep="mvnrun dependency:tree $@"
 alias mpom="mvnrun help:effective-pom $@"
 alias mdist="mvnrun clean install -P distribution,eadmin-stub,radac-stub,openexchangerates $@"
 alias mvtree="mvnrun dependency:tree -Dverbose $@" 
+function mg() {
+	if [[ -a ./gulpfile.js ]]; then
+		cat ./gulpfile.js
+	else 
+		if [[ -a ../gulpfile.js ]]; then
+			cat ../gulpfile.js
+		fi
+	fi
+}
 
 mvnrun() {
 	echo mvn $@

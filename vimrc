@@ -76,7 +76,7 @@ if &term =~ '^screen'
    " tmux knows the extended mouse mode
    set ttymouse=xterm2
 endif
-
+set clipboard=unnamed " Fix clipboard in iTerm2 with Vim 4.3. Source: https://evertpot.com/osx-tmux-vim-copy-paste-clipboard/
 "--------------------
 " Misc configurations
 "--------------------

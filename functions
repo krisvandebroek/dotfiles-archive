@@ -28,7 +28,11 @@ function gr() {
 		echo "Example: gr java //TODO";
 	else
 		if [ -n "$2" ]; then
-			grep -i -I -r --include="*.$1" "$2" .;
+			if [[ $1 =~ .*\..* ]]; then
+				grep -i -I -r --include="$1" "$2" .;
+			else
+				grep -i -I -r --include="*.$1" "$2" .;
+			fi
 		else
 			grep -i -I -r "$1" .;
 		fi
@@ -42,5 +46,16 @@ function mvn-version-bump() {
 		echo "Example: mvn-version-bump 1.0.0-SNAPSHOT";
 	else 
 		mvn -U --batch-mode release:update-versions -DdevelopmentVersion=$1;
+	fi
+}
+
+# Generate a file listing for the current directories and subdirectories. Place the listing in the given location
+# Use the output and diff to compare two directories
+function gen-file-list() {
+	if [ -z "$1" ]; then
+		echo "Usage: gen-file-list <output-location>";
+		echo "Example: gen-file-list ~/Documents/my-generated-list.txt";
+	else 
+		find . -type f -print0 | xargs -0 stat -f '%N %z' | sort > $1;
 	fi
 }

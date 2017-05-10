@@ -23,6 +23,9 @@ alias f='find . -iname ' # Find a file with given name
 # Size of the current directory
 alias usage='du -ch 2> /dev/null | tail -1'
 
+# Create a directory listing to use in a diff to compare files in two locations
+alias dirlisting="find . -type f -print0 | xargs -0 stat -f '%N %z' | sort"
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
@@ -52,6 +55,7 @@ alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 # Show/hide hidden files in Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
