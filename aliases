@@ -19,6 +19,8 @@ alias du='du -ch' # Disk usage, human readible and with total by default
 alias du1='du -chd 1' # Disk usage, only 1 level deep
 alias dotfiles='cd ~/.dotfiles'
 alias f='find . -iname ' # Find a file with given name
+alias youtube-audio='youtube-dl --extract-audio --audio-format mp3 '
+alias youtube-playlist="youtube-dl -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' "
 
 # Size of the current directory
 alias usage='du -ch 2> /dev/null | tail -1'
