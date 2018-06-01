@@ -56,6 +56,7 @@
 	# Remove all local branches which are already merged to develop (no impact on remote existence of branch) (eg. `git cleanf`)
 	cleanf = "!f() { git branch --merged develop | grep '^  feature' | xargs git branch -d; }; f"
 
+	fpush = !git push --set-upstream origin `git symbolic-ref --short HEAD`
 
 
 # Allow local customizations in the .gitconfig_local file
