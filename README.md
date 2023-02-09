@@ -6,7 +6,7 @@ This git repository contains my dotfiles repository. The idea of dotfiles is to 
 
 If you want to start with dotfiles, take a look at [https://dotfiles.github.io/](https://dotfiles.github.io/). There you can find a list of dotfiles repositories of people that go very extreme in this method. The most popular are the repositories of [Zach Holman](https://github.com/holman/dotfiles) and [Mathias Bynens]([https://github.com/mathiasbynens/dotfiles).
 
-The github page also lists possible dotfile utilities that give you features to automatically synchronize your system with the config in the dotfiles repository. The one I use is [Dotbot](https://github.com/anishathalye/dotbot)
+The github page also lists possible dotfile utilities that give you features to automatically synchronize your system with the config in the dotfiles repository. The one I use is [Dotbot](https://github.com/anishathalye/dotbot).
 
 # Dotbot
 
