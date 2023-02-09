@@ -19,7 +19,8 @@ alias du='du -ch' # Disk usage, human readible and with total by default
 alias du1='du -chd 1' # Disk usage, only 1 level deep
 alias dotfiles='cd ~/.dotfiles'
 alias f='find . -iname ' # Find a file with given name
-alias youtube-audio='youtube-dl --extract-audio --audio-format mp3 '
+# Credits: Pablo Bianchi, Source https://askubuntu.com/questions/423508/can-i-directly-download-audio-using-youtube-dl
+alias youtube-audio='youtube-dl --ignore-errors --output "%(title)s.%(ext)s" --extract-audio --audio-format mp3 '
 alias youtube-playlist="youtube-dl -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' "
 
 # Size of the current directory
