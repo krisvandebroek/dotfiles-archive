@@ -107,3 +107,5 @@
 	email = kris@vandebroek.net
 [commit]
 	template = /Users/krisvandebroek/.stCommitMsg
+[pull]
+	ff = only

@@ -59,3 +59,13 @@ function gen-file-list() {
 		find . -type f -print0 | xargs -0 stat -f '%N %z' | sort > $1;
 	fi
 }
+
+function cleanUpRecentPlaces() {
+	recentPlaces=$(defaults read .GlobalPreferences NSNavRecentPlaces);
+	for recentPlace in ${recentPlaces//,/}
+	do 
+	  echo $recentPlace;
+	done
+	echo $recentPlaces;
+}
+
