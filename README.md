@@ -1,3 +1,7 @@
+# Archived
+
+This dotfiles git repository has been archived and replaced by dotfiles using Chezmoi: http://github.com/krisvandebroek/dotfiles
+
 # Introduction
 
 This git repository contains my dotfiles repository. The idea of dotfiles is to store your config of your system in a remote git repository. If something happens to your machine, your config is safe and your system is back customized to your needs with a push on the button.
